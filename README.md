@@ -1,2 +1,2 @@
 # Logistic-Regression-Model-for-Bank-Defaults
-Predicting bank loan defaults using logistic regression with a confusion matrix, accuracy evaluation, and bias reduction techniques.
+Predicting bank loan defaults using logistic regression with a confusion matrix, accuracy evaluation, and bias reduction techniques. This is a machine learning project that predicts the likelihood of loan defaults using historical financial and personal data. This project aims to assist financial institutions in making informed lending decisions by identifying potential defaulters.
