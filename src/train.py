@@ -19,12 +19,15 @@ if not DATA.exists():
     raise FileNotFoundError(f"Dataset not found at {DATA}. Run `python src/generate_data.py` first.")
 
 df = pd.read_csv(DATA)
+# Handle missing values (if any)
+df.fillna(df.median(numeric_only=True), inplace=True)
+
 
 features = ['Age', 'Annual_Income', 'Employment_Years', 'Credit_Score', 'Loan_Amount', 'Loan_Term_Months', 'Late_Payments']
 X = df[features].copy()
 y = df['Defaulted'].copy()
 
-# Scale features
+# Scale features between 0 and 1 for fairness
 scaler = MinMaxScaler()
 X_scaled = scaler.fit_transform(X)
 
