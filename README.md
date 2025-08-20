@@ -58,6 +58,10 @@ python src/predict_cli.py
 ```
 Follow the prompts to input applicant details. The script loads the saved scaler + model, validates inputs, scales correctly, and prints the prediction.
 
+### Data Preprocessing
+- Missing values automatically imputed with column medians
+- Features scaled between 0 and 1 using MinMaxScaler
+
 ## 📊 Features Used
 - Age
 - Annual_Income
