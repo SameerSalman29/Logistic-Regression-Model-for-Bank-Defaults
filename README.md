@@ -72,6 +72,12 @@ Follow the prompts to input applicant details. The script loads the saved scaler
 - Accuracy score
 - Confusion matrix visualization
 - Class balancing with `class_weight='balanced'` and increased `max_iter`
+- ### Evaluation Metrics
+- Accuracy Score
+- Confusion Matrix (saved as `models/confusion_matrix.png`)
+- Classification Report (precision, recall, f1-score)
+- ROC Curve with AUC (saved as `models/roc_curve.png`)
+
 
 ## ⚖️ Bias Reduction Notes
 - Synthetic data includes **15% label noise** to simulate real-world exceptions and stress test the classifier.
