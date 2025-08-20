@@ -42,6 +42,32 @@ print(f"Model Accuracy: {acc:.4f}")
 
 # Confusion matrix
 cm = confusion_matrix(y_test, y_pred)
+
+from sklearn.metrics import classification_report, roc_auc_score, roc_curve
+
+# Print classification report
+print("\nClassification Report:")
+print(classification_report(y_test, y_pred))
+
+# ROC curve
+fpr, tpr, thresholds = roc_curve(y_test, model.predict_proba(X_test)[:,1])
+auc_score = roc_auc_score(y_test, y_pred)
+print(f"ROC AUC Score: {auc_score:.4f}")
+
+# Plot ROC curve
+plt.figure()
+plt.plot(fpr, tpr, label=f'ROC Curve (AUC = {auc_score:.2f})')
+plt.plot([0,1], [0,1], 'k--')
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('Receiver Operating Characteristic (ROC)')
+plt.legend(loc='lower right')
+roc_path = MODELS / "roc_curve.png"
+plt.savefig(roc_path)
+plt.close()
+print(f"Saved ROC curve to {roc_path}.")
+
+
 plt.figure(figsize=(6,5))
 sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
 plt.xlabel('Predicted')
